@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>analytics-apim-components</artifactId>
+        <groupId>org.wso2.analytics.apim</groupId>
+        <version>2.5.1-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>org.wso2.analytics.apim.rest.api.file</artifactId>
+    <build>
+        <plugins>
+
+            <plugin>
+                <groupId>org.wso2.maven.plugins</groupId>
+                <artifactId>swagger2msf4j-maven-plugin</artifactId>
+                <version>1.0-SNAPSHOT</version>
+                <configuration>
+                    <inputSpec>${project.basedir}/src/main/resources/file-api.yaml</inputSpec>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <version>1.9.1</version>
+                <executions>
+                    <execution>
+                        <id>add-source</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>add-source</goal>
+                        </goals>
+                        <configuration>
+                            <sources>
+                                <source>src/gen/java</source>
+                            </sources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+    <dependencies>
+        <dependency>
+            <groupId>com.fasterxml.jackson.jaxrs</groupId>
+            <artifactId>jackson-jaxrs-json-provider</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>${slf4j.api.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.ws.rs</groupId>
+            <artifactId>javax.ws.rs-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>javax.ws.rs</groupId>
+            <artifactId>jsr311-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.wso2.msf4j</groupId>
+            <artifactId>msf4j-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.swagger</groupId>
+            <artifactId>swagger-annotations</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.wso2.analytics.apim</groupId>
+            <artifactId>org.wso2.analytics.apim.file.adapter</artifactId>
+        </dependency>
+    </dependencies>
+
+    <properties>
+        <microservice.mainClass>org.wso2.carbon.apimgt.rest.api.file.Application</microservice.mainClass>
+        <import.package>
+            org.wso2.msf4j.*; version="${msf4j.package.import.version.range}",
+            org.slf4j.*;version="${slf4j.logging.package.import.version.range}",
+            javax.ws.rs.*; version="${javax.ws.rs.import.version.range}",
+            org.json.simple.*;
+        </import.package>
+        <export.package>
+            org.wso2.carbon.apimgt.rest.api.file.*; version="${analytics.apim.version}"
+        </export.package>
+        <carbon.component>
+            osgi.service; objectClass="org.wso2.msf4j.Microservice"; serviceCount="4"
+        </carbon.component>
+    </properties>
+</project>

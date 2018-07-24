@@ -537,6 +537,11 @@
                 <version>${cxf.version}</version>
             </dependency>
             <dependency>
+                <groupId>com.fasterxml.jackson.jaxrs</groupId>
+                <artifactId>jackson-jaxrs-json-provider</artifactId>
+                <version>${fasterxml.jackson.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>commons-io.wso2</groupId>
                 <artifactId>commons-io</artifactId>
                 <version>${commons-io.version}</version>
@@ -596,6 +601,21 @@
                 <groupId>org.wso2.carbon.analytics-common</groupId>
                 <artifactId>org.wso2.carbon.event.input.adapter.core</artifactId>
                 <version>${carbon.analytics.common.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.ws.rs</groupId>
+                <artifactId>javax.ws.rs-api</artifactId>
+                <version>${javax.ws.rs-api.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.wso2.msf4j</groupId>
+                <artifactId>msf4j-core</artifactId>
+                <version>${org.wso2.msf4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.swagger</groupId>
+                <artifactId>swagger-annotations</artifactId>
+                <version>${io.swagger.version}</version>
             </dependency>
 		</dependencies>
 	</dependencyManagement>
@@ -793,6 +813,7 @@
         <shindig.version>2.5.2</shindig.version>
         <slf4j.log4j12.version>1.6.1</slf4j.log4j12.version>
         <slf4j.api.version>1.6.1</slf4j.api.version>
+        <slf4j.logging.package.import.version.range>[1.7.1, 2.0.0)</slf4j.logging.package.import.version.range>
         <cipher.tool.version>1.0.0-wso2v3</cipher.tool.version>
         <geoip.api.version>1.2.15</geoip.api.version>
         <project.scm.id>my-scm-server</project.scm.id>
@@ -801,7 +822,17 @@
         <org.eclipse.osgi.version>3.7.0.v20110613</org.eclipse.osgi.version>
         <version.equinox.osgi.services>3.3.100.v20120522-1822</version.equinox.osgi.services>
         <forgetme.tool.version>1.1.20</forgetme.tool.version>
+        <fasterxml.jackson.version>2.9.5</fasterxml.jackson.version>
+        <javax.ws.rs-api.version>2.0</javax.ws.rs-api.version>
 
+        <org.wso2.msf4j.version>2.5.2</org.wso2.msf4j.version>
+        <msf4j.package.import.version.range>[2.4.0, 3.0.0)</msf4j.package.import.version.range>
+
+        <javax.ws.rs.import.version.range>[2.0.0,3.0.0)</javax.ws.rs.import.version.range>
+        <io.swagger.version>1.5.16</io.swagger.version>
+        <io.swagger.import.version.range>[1.5.0, 1.6.0)</io.swagger.import.version.range>
+        <!--version>-->
+        <!--<com.fasterxml.jackson.core.version>2.8.9</com.fasterxml.jackson.core.version>-->
         <carbon.ntask.import.version.range>[4.6.0, 4.7.0)</carbon.ntask.import.version.range>
         <carbon.registry.imp.pkg.version>[1.0.1, 2.0.0)</carbon.registry.imp.pkg.version>
         <carbon.platform.package.import.version.range>[4.4.0, 4.6.0)</carbon.platform.package.import.version.range>
